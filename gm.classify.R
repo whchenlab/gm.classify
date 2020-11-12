@@ -6,6 +6,7 @@
 ## -- last modified: June 2, 24, 25, 2020;  --
 ## -- last modified: Sept 25, 2020;  --
 ## -- last modified: Oct 27,2020; -- wilcox 检验考虑没差异的情况
+## -- Nov 12,2020;--as.factor(meta.data)#
 
 ## -- data cleansing -- 
 require(tidyverse);
@@ -419,7 +420,7 @@ rf.featureselect.rfe <- function(rf, number = 10, repeats = 10, sizes = c(1:20) 
   feat.data <- rf[["feat.data"]];
   feat.tmp <- feat.data %>% dplyr::select(-"Group");
   meta.tmp <- rf[["meta.raw"]] %>% dplyr::select(rf[["grouping.column"]]);
-  meta.data <- meta.tmp[,1];
+  meta.data <- as.factor(meta.tmp[,1]);
   ## ========================================================================
   ## -- generates a control object and do a simple backwards selection ...
   ctrl <- rfeControl(functions = rfFuncs, method = "repeatedcv", number = number, repeats = repeats, verbose = FALSE, returnResamp = "final");
