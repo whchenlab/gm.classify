@@ -1,2 +1,2 @@
-# rf.classify
-One stop metagenomics analysis pipeline including modeling and beyond
+# gm.classify
+One stop machine learning pipeline for case control gut metagenomics.
